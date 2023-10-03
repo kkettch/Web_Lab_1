@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Programming Lab 1</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="favicon.jpg" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body onload="draw()">
+    <header>
+      <section class="header">
+        <div class="owner_name">
+          Чмурова Мария <br />
+          Владиславовна
+        </div>
+        <div class="owner_group">Группа: P3232</div>
+        <div class="owner_variant">Вариант: 1313</div>
+      </section>
+    </header>
+    <section class="main">
+      <div class="info">
+        <ul class="list_of_rules">
+          Правила пользования сайтом:
+          <li>Введите значение параметра R</li>
+          <li>Введите координаты X и Y</li>
+          <li>Проверьте куда попадает введенная точка по изображению</li>
+          <li>Получите информацию о попадании в таблице</li>
+        </ul>
+      </div>
+      <div class="coordinates">
+        <form>
+          <label for="X">Введите X в диапаозоне (-3; 3):</label>
+          <input
+            type="text"
+            class="textbox"
+            name="X_coordinate"
+            placeholder="Например: 0"
+            maxlength="5"
+          />
+        </form>
+        <form>
+          <label for="Y">Выберите значение Y:<br /></label>
+          <div class="y_coordinate">
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y-4"
+                value="-4"
+              />-4</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y-3"
+                value="-3"
+              />-3</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y-2"
+                value="-2"
+              />-2</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y-1"
+                value="-1"
+              />-1</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y0"
+                value="0"
+              />0</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y1"
+                value="1"
+              />1</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y2"
+                value="2"
+              />2</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y3"
+                value="3"
+              />3</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                class="checkbox"
+                name="y4"
+                value="4"
+              />4</label
+            >
+          </div>
+        </form>
+        <label for="R"
+          >Выберите значение R:<br />
+          <div class="buttons">
+            <button class="btn" value="1">1</button>
+            <button class="btn" value="2">2</button>
+            <button class="btn" value="3">3</button>
+            <button class="btn" value="4">4</button>
+            <button class="btn" value="5">5</button>
+          </div>
+        </label>
+        <p id="error_message"></p>
+      </div>
+      <div class="image">
+        Область: <br />
+        <canvas id="canvas"></canvas>
+      </div>
+    </section>
+    <footer>
+      <div class="check_buttons">
+        <form method="POST" action="process.php" id="coordinateForm">
+          <input
+            class="pointer"
+            id="checking"
+            name="check"
+            type="submit"
+            value="Проверить"
+          />
+        </form>
+        <form>
+          <input
+            class="pointer"
+            id="clearing"
+            type="button"
+            value="Очистить таблицу"
+            onclick="clear_table()"
+          />
+          <input type="hidden" name="XX" id="hiddenX" />
+          <input type="hidden" name="YY" id="hiddenY" />
+          <input type="hidden" name="RR" id="hiddenR" />
+        </form>
+      </div>
+      <div class="last_step">
+        <table id="resultTable" class="table">
+          <thead>
+            <tr id="heads">
+              <th>X</th>
+              <th>Y</th>
+              <th>R</th>
+              <th>Текущее время</th>
+              <th>Время работы</th>
+              <th>Результат</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </footer>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="clear_table.js"></script>
+  <script src="validation/checkbox.js"></script>
+  <script src="validation/validate.js"></script>
+  <script src="validation/button.js"></script>
+  <script src="data_handler.js"></script>
+  <script src="draw.js"></script>
+</html>
